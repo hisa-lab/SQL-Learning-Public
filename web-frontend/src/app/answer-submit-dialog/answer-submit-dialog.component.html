@@ -1,0 +1,30 @@
+<div class="modal" tabindex="-1" role="dialog" bsModal #lgModal="bs-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{lesson.number}}-{{practice.number}} {{practice.title}} 回答提出</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="Cancel()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" [hidden]="isSubmit">
+        以下の内容を提出します。
+        <pre>{{answer.answer}}</pre>
+      </div>
+      <div class="modal-footer" [hidden]="isSubmit">
+        <button type="button" class="btn btn-default" (click)="Cancel()" data-dismiss="modal">キャンセル</button>
+        <button type="button" class="btn btn-info" (click)="Submit()" data-dismiss="modal" [disabled]="submitDisable">提出{{submitDisable?"中…":""}}</button>
+      </div>
+      <div class="modal-body" [hidden]="!isSubmit">
+        提出完了しました。
+        <pre>{{answer.answer}}</pre>
+        <div [hidden]="practice.type !== 'sqlexec'">
+          判定結果:{{answer.mark?"正解":"不正解"}}
+        </div>
+      </div>
+      <div class="modal-footer" [hidden]="!isSubmit">
+        <button type="button" class="btn btn-default" (click)="Cancel()" data-dismiss="modal">閉じる</button>
+      </div>
+    </div>
+  </div>
+</div>

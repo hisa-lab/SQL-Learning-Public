@@ -1,0 +1,3 @@
+<a class="list-group-item list-group-item-action" routerLink="./Lesson">{{AuthdataService.isAuth ? '授業一覧画面へ':'ログインする'}}</a>
+<a class="list-group-item list-group-item-action" routerLink="./bbs" *ngIf="AuthdataService.isAuth">要望・不具合投稿掲示板</a>
+<a class="list-group-item list-group-item-action" routerLink="./user" *ngIf="AuthdataService.isAdmin">ユーザー管理</a>

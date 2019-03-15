@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-9">
+    <app-practice-detail [lesson]=lesson [practice]=practice></app-practice-detail>
+    <div class="input-sql input-group">
+      <input type="text" name="inputSQL" placeholder="SQL入力欄" [(ngModel)]="inputsql" class="form-control">
+      <span class="input-group-btn">
+        <button class="btn btn-outline-primary" type="submit" (click)="sqlrun();">実行</button>
+      </span>
+    </div>
+    <div class="output-cards">
+      <div class="output-card card" *ngFor="let res of this.outputs">
+        <div class="output-query card-header">
+          <div class="query">{{res.sql}}</div>
+          <div class="input-group-btn answer-submission-btn" *ngIf="res.columns !== null;">
+            <button class="btn btn-outline-primary" type="submit" (click)="openDialog(res.sql)">提出</button>
+          </div>
+        </div>
+        <div class="card-body sqlexec-returns">
+          <div *ngIf="res.columns !== null; then thenBlock; else elseBlock"></div>
+          <ng-template #thenBlock>
+            <table class="card-text table table-hover table-bordered table-sm">
+              <thead>
+                <tr>
+                  <th *ngFor="let column of res.columns">{{column}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let row of res.values">
+                  <td *ngFor="let value of row">{{value}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-template>
+          <ng-template #elseBlock>
+            {{res.values[0][0]}}
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 sideBox">
+    <app-chat [lesson]=lesson [practice]=practice></app-chat>
+    <app-table-list [file]=practice.file></app-table-list>
+  </div>
+</div>
+<app-answer-submit-dialog (onSubmit)="getDialogData($event)" #dialog></app-answer-submit-dialog>

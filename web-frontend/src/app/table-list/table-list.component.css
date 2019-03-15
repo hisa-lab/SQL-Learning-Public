@@ -1,0 +1,26 @@
+.card .card-header a[data-toggle="collapse"] {
+  display: block;
+  padding: .75rem 1.25rem;
+  margin: -.75rem -1.25rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+.card .card-header a[data-toggle="collapse"]:active,
+.card .card-header a[data-toggle="collapse"]:hover,
+.card .card-header a[data-toggle="collapse"]:focus {
+  text-decoration: none; 
+}
+.card-body {
+  margin: 2px;
+  padding: 0;
+}
+
+table {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,15 @@
+.lesson {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.lesson .title {
+    flex-grow: 1;
+}
+
+.admin-button {
+    float: right;
+    margin-top: -6px;
+    margin-bottom: -6px;
+}
+

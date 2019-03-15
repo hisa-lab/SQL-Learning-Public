@@ -1,0 +1,51 @@
+{
+  "name": "web-backend",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "npm run waitmysql && npm run lbsdk && node .",
+    "devstart": "npm run waitmysql && npm run lbsdk && nodemon --legacy-watch index.js",
+    "waitmysql": "wait-for-mysql --host=mysql --username=apiuser --password=apipasswd --database=api --quiet",
+    "lbsdk": "lb-sdk server/server.js /app/front/lb-sdk/ --library angular2 --quiet --io disabled",
+    "lbng": "lb-ng server/server.js /app/front/lb-services.js"
+  },
+  "dependencies": {
+    "@mean-expert/loopback-sdk-builder": "2.2.8",
+    "babel-runtime": "^6.26.0",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "fs-extra": "^5.0.0",
+    "helmet": "^3.12.1",
+    "ieee754": "*",
+    "loopback": "^3.20.0",
+    "loopback-boot": "^3.1.0",
+    "loopback-component-explorer": "^6.0.1",
+    "loopback-connector-mysql": "^5.2.0",
+    "nodemon": "^1.17.5",
+    "passport": "^0.3.2",
+    "passport-google-oauth": "^1.0.0",
+    "serve-favicon": "^2.0.1",
+    "socket.io": "^2.1.1",
+    "socketio-auth": "^0.1.1",
+    "sequelize": "^4.2.1",
+    "sqlite3": "^4.0.1",
+    "strong-error-handler": "^2.0.0",
+    "uuid": "^3.2.1",
+    "wait-for-mysql": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0",
+    "nsp": "^3.2.1"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "UNLICENSED",
+  "description": "web-backend"
+}

@@ -1,0 +1,24 @@
+{
+  "extends": [
+      "eslint:recommended"
+  ],
+  "rules": {
+      "semi": "error",
+      "no-unused-vars": 0,
+      "angular/no-services": 0,
+      "no-console": 0
+  },
+  "env": {
+      "es6": true,
+      "node": true
+  },
+  "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 8
+  },
+  "globals": {
+      "io": true,
+      "Terminal": true,
+      "angular": true
+  }
+}

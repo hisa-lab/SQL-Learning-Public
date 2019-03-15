@@ -1,0 +1,70 @@
+{
+  "name": "Account",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "chatName": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "accessToken",
+      "foreignKey": "userId"
+    },
+    "answer": {
+      "type": "hasMany",
+      "model": "Answer"
+    },
+    "BBSPost": {
+      "type": "hasMany",
+      "model": "BBSPost"
+    },
+    "UserLog": {
+      "type": "hasMany",
+      "model": "UserLog"
+    },
+    "ValidUser": {
+      "type": "hasOne",
+      "model": "ValidUser",
+      "foreignKey": "email",
+      "primaryKey": "email"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "comment": "すべて拒否"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "comment": "管理者には読み出しはすべて許可"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "comment": "管理者には書き込みもすべて許可"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__ValidUser",
+      "comment": "ログイン済みユーザには自分の権限の確認を許可"
+    }
+  ],
+  "methods": {}
+}

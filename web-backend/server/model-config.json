@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models",
+      "../node_modules/loopback-component-passport/lib/models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "accessToken": {
+    "dataSource": "mdb",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mdb",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mdb",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mdb",
+    "public": false
+  },
+  "Account": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "Lesson": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "Practice": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "Answer": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "ValidUser": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "Chat": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "BBSPost": {
+    "dataSource": "mdb",
+    "public": true
+  },
+  "UserLog": {
+    "dataSource": "mdb",
+    "public": true
+  }
+}

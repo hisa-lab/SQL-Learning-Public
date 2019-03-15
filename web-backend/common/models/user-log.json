@@ -1,0 +1,34 @@
+{
+  "name": "UserLog",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "event": {
+      "type": "string",
+      "required": true
+    },
+    "target": {
+      "type": "string",
+      "required": true
+    },
+    "item": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "Date",
+      "default": "$now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "account": {
+      "type": "belongsTo",
+      "model": "Account"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,22 @@
+.chat-text {
+    padding: 5px;
+}
+
+.chat-name {
+    font-size: small;
+    padding: 1px;
+}
+
+.chat-log {
+    padding: 5px;
+    max-height: 240px;
+    overflow-x: auto;
+}
+
+.chat-form {
+    padding: 1px;
+}
+
+.box {
+    margin-bottom: 10px;
+}

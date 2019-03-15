@@ -1,0 +1,27 @@
+.input-sql {
+  margin-bottom: 10px;
+}
+
+.output-card  {
+  margin-bottom: 10px;
+}
+
+.output-answer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sqlexec-returns {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.answer-submission-btn {
+  float: right;
+  /* top: 0; */
+  margin-top: -25px;
+}
+
+.output-cards > div:nth-child(1) {
+  border-color: black;
+}

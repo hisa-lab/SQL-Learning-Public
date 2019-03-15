@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="navHead">
+      <a class="navbar-brand" href="#">SQL-Learning</a>
+      <div class="spacer"></div>
+      <div [(hidden)]="!isAuth">
+        <span class="navbar-text"> {{account.email}} {{isAdmin ? '管理者':'一般ユーザー'}}</span>
+        <button class="btn btn-outline-success" type="button" (click)="AuthdataService.logout()">logout</button>
+      </div>
+      <div [(hidden)]="isAuth">
+        <button class="btn btn-outline-success" type="button" onClick="location.href='auth/google'">login</button>
+      </div>
+    </div>
+  </nav>
+  <div class="sqlmk2">
+    <router-outlet></router-outlet>
+  </div>
+</div>

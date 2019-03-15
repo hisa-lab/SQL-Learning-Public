@@ -1,0 +1,34 @@
+version: '3'
+services:
+  web-frontend:
+    build: ./web-frontend
+    ports:
+      - '4200:4200'
+    volumes:
+      - ./web-frontend:/app
+      - /app/node_modules
+    links:
+      - "web-backend"
+    restart: always
+  web-backend:
+    build: ./web-backend
+    environment:
+      NODE_ENV: development
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./web-backend:/app
+      - ./web-frontend:/app/front
+      - /app/node_modules
+    links:
+      - "mysql"
+    restart: always
+  mysql:
+    image: mysql:5
+    command: mysqld --character-set-server=utf8mb4
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - ./db/db-data:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d
+    restart: always

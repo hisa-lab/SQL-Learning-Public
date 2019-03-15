@@ -1,0 +1,61 @@
+{
+  "name": "Practice",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "number": {
+      "type": "number",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "markingType": {
+      "type": "string",
+      "required": true
+    },
+    "sampleAnswer": {
+      "type": "string"
+    },
+    "file": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "lesson": {
+      "type": "belongsTo",
+      "model": "Lesson"
+    },
+    "answer": {
+      "type": "hasMany",
+      "model": "Answer"
+    },
+    "chat": {
+      "type": "hasMany",
+      "model": "Chat"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "comment": "すべて拒否"
+    }
+  ],
+  "methods": {}
+}

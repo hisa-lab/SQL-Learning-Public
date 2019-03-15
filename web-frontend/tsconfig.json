@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "jasmine",
+      "firebase",
+      "node"
+    ],
+    "lib": [
+      "es2017",
+      "dom",
+      "es5"
+    ]
+  },
+  "include": [
+    "./src/**/*",
+    "./node_modules/angular2-indexeddb/index.ts",
+    "./node_modules/sql.js/js/sql.js"
+  ]
+}

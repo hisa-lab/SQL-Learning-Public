@@ -1,0 +1,21 @@
+<div [formGroup]="form">
+  <div class="form-group">
+    <label>タイトル</label>
+    <input type="text" class="form-control" formControlName="title">
+  </div>
+  <div class="form-group">
+    <label>本文</label>
+    <textarea class="form-control" rows="3" formControlName="body"></textarea>
+  </div>
+  <button type="button" class="btn btn-default" (click)="Cancel()">キャンセル</button>
+  <button type="submit" class="btn btn-info" (click)="Submit()" [disabled]="!form.valid">送信</button>
+</div>
+
+<div class="card box" *ngFor="let post of posts">
+  <div class="card-header">
+    #{{post.id}} {{post.title}} ({{post.account.email}})
+  </div>
+  <div class="card-body bbs-log">
+    <pre>{{post.body}}</pre>
+  </div>
+</div>

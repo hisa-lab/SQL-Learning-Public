@@ -1,0 +1,24 @@
+<div class="page-header">
+  </div>
+  <div class="page-description">
+  <table class="card-text table table-hover table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>課題番号</th>
+        <th>課題タイトル</th>
+        <th>提出ユーザー数</th>
+        <th>正解ユーザー数</th>
+        <th>正答率</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let answer of answers" routerLink="../{{answer.practiceId}}/{{answer.type}}">
+        <td>{{answer.number}}</td>
+        <td><pre>{{answer.body}}</pre></td>
+        <td>{{answer.answerCount}}</td>
+        <td>{{answer.correctAnswer}}</td>
+        <td>{{(answer.correctAnswer/answer.answerCount * 100) | number:0 }}%</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

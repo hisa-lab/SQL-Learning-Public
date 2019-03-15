@@ -1,0 +1,22 @@
+<div class="page-header">
+</div>
+<div class="page-description">
+<table class="card-text table table-hover table-bordered table-sm">
+  <thead>
+    <tr>
+      <th>ユーザー名</th>
+      <th>提出回数</th>
+      <th>正解回数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let answer of answers">
+      <td>
+        <p>{{answer.email}}</p>
+      </td>
+      <td>{{answer.count}}</td>
+      <td>{{answer.point}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,25 @@
+<div class="page-header">
+  <button class="btn btn-outline-primary" (click)="location.back()">課題画面にもどる</button>
+</div>
+<div class="page-description">
+  <table class="card-text table table-hover table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>提出内容</th>
+        <th>判定</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let answer of answers">
+        <td>
+          <pre *ngIf="practice.type === 'ormexec'">{{answer.answer}}</pre>
+          <p *ngIf="practice.type !== 'ormexec'"> {{answer.answer}}</p>
+        </td>
+        <td>
+          <pre *ngIf="practice.markingType !== 'resultCompare'">提出済み</pre>
+          <p *ngIf="practice.markingType === 'resultCompare'"> {{answer.mark ? "正解":"不正解"}}</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

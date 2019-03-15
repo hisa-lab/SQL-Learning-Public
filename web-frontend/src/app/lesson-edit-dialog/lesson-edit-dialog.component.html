@@ -1,0 +1,30 @@
+<div class="modal" tabindex="-1" role="dialog" bsModal #lgModal="bs-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div *ngIf="lesson.id; then thenBlock; else elseBlock"></div>
+        <ng-template #thenBlock><h5 class="modal-title">授業編集</h5></ng-template>
+        <ng-template #elseBlock><h5 class="modal-title">授業作成</h5></ng-template>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="Cancel()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div [formGroup]="form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="title">授業タイトル:</label>
+            <input type="text" class="form-control" formControlName="title">
+          </div>
+          <div class="form-group">
+            <label for="number">授業回:</label>
+            <input type="number" class="form-control" formControlName="number">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" (click)="Cancel()" data-dismiss="modal">キャンセル</button>
+          <button type="submit" class="btn btn-info" (click)="Submit()" data-dismiss="modal" [disabled]="!form.valid">送信</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

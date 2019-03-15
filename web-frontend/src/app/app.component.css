@@ -1,0 +1,17 @@
+.sqlmk2 {
+  margin-top: 10px;
+}
+
+.navbar {
+  display: block;
+}
+
+.navHead {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.spacer {
+  flex-grow: 1;
+}

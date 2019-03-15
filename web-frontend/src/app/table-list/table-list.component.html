@@ -1,0 +1,36 @@
+<div class="card box">
+  <div class="card-header">
+    テーブル一覧
+  </div>
+  <div class="card-body chat-log">
+    <div id="accordion" role="tablist" aria-multiselectable="true" class="box">
+      <div class="card" *ngFor="let table of this.tableList">
+        <div class="card-header" role="tab" id="{{table.name}}">
+          <h5 class="mb-0">
+            <a class="collapsed text-dark" data-toggle="collapse" href="#collapse{{table.name}}" role="button" aria-expanded="false">
+              {{table.name}}
+            </a>
+          </h5>
+        </div>
+        <div id="collapse{{table.name}}" class="collapse" role="tabpanel" aria-labelledby="heading" data-parent="#accordion">
+          <div class="card-body table-sm">
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">カラム名</th>
+                  <th scope="col">型</th>
+                </tr>
+              </thead>
+              <thead>
+                <tr *ngFor="let column of table.column">
+                  <th>{{column.name}}</th>
+                  <th>{{column.type}}</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

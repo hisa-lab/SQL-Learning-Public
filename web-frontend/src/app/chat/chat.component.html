@@ -1,0 +1,26 @@
+<div class="card box">
+  <div class="card-header">
+    タイムライン
+    <!-- <a routerLink="../chatlog" style="float: right;">過去ログ</a> -->
+  </div>
+  <div class="card-body chat-log">
+
+    <div class="card" *ngFor="let log of chatLog">
+      <div class="card-body chat-text">
+        {{log.text}}
+      </div>
+      <div class="card-footer chat-name text-right">
+        {{log.name}}<br>{{log.time| date: 'yyyy年M月d日 HH時mm分ss秒'}}
+      </div>
+    </div>
+
+  </div>
+  <div class="card-footer chat-form">
+    <div class="input-group">
+      <input type="text" name="chattext" placeholder="質問内容" [(ngModel)]="chattext" class="form-control">
+      <span class="input-group-btn">
+        <button class="btn btn-outline-primary" type="submit" (click)="send()">送信</button>
+      </span>
+    </div>
+  </div>
+</div>

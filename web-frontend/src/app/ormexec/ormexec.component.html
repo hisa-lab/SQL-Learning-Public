@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-9">
+    <app-practice-detail [lesson]=lesson [practice]=practice></app-practice-detail>
+    <div class="ace-component">
+      <ace-editor #ormEditor [autoUpdateContent]="true" mode="javascript">
+      </ace-editor>
+      <div class="button-area">
+        <button class="btn btn-primary" type="submit" (click)="this.ormRun()">実行</button>
+        <button class="btn btn-primary" type="submit" (click)="this.ormSubmit()">提出</button>
+      </div>
+    </div>
+    <div class="card box">
+      <div class="card-header">
+        実行結果
+      </div>
+      <div class="card-body">
+        <pre>{{this.stdOut}}</pre>
+        <pre>{{this.stdErr}}</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 sideBox">
+    <app-chat [lesson]=lesson [practice]=practice></app-chat>
+    <app-table-list [file]=practice.file></app-table-list>
+  </div>
+</div>
+<app-answer-submit-dialog (onSubmit)="getDialogData($event)" #dialog></app-answer-submit-dialog>

@@ -1,0 +1,17 @@
+<ul class="list-group">
+  <li class="list-group-item list-group-item-secondary">
+    第{{lesson.number}}回 {{lesson.title}} 課題一覧
+    <button class="btn btn-outline-primary admin-button" routerLink="./answerAggregate" *ngIf="AuthdataService.isAdmin">全体提出状況</button>
+  </li>
+  <div *ngFor="let practice of practices">
+    <div class="list-group-item list-group-item-action practice" routerLink="./{{practice.id}}/{{practice.type}}">
+      <div class="title">
+          {{practice.number}} - {{practice.title}}
+      </div>
+      <button click-stop-propagation class="btn btn-outline-primary admin-button" type="submit"  routerLink="./{{practice.id}}/answerAggregate" *ngIf="AuthdataService.isAdmin">提出状況</button>      
+      <button click-stop-propagation class="btn btn-outline-primary admin-button" type="submit" (click)="openDialog(practice)" *ngIf="AuthdataService.isAdmin">編集</button>
+    </div>
+  </div>
+</ul>
+<button class="btn btn-outline-primary" type="submit" (click)="openDialog()" *ngIf="AuthdataService.isAdmin">新規課題追加</button>
+<app-practice-edit-dialog (onSubmit)="getDialogData($event)" #dialog></app-practice-edit-dialog>

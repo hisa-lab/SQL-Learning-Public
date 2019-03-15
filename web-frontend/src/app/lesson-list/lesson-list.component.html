@@ -1,0 +1,13 @@
+<ul class="list-group">
+  <li class="list-group-item list-group-item-secondary">授業一覧</li>
+  <div *ngFor="let Lesson of lessons">
+    <div class="list-group-item list-group-item-action lesson" routerLink="./{{Lesson.id}}">
+      <div class="title">
+        第{{Lesson.number}}回 {{Lesson.title}}
+      </div>
+      <button click-stop-propagation class="btn btn-outline-primary admin-button" type="submit" (click)="openDialog(Lesson)" *ngIf="AuthdataService.isAdmin">編集</button>
+    </div>
+  </div>
+</ul>
+<button class="btn btn-outline-primary" type="submit" (click)="openDialog()" *ngIf="AuthdataService.isAdmin">新規授業追加</button>
+<app-lesson-edit-dialog (onSubmit)="getDialogData($event)" #dialog></app-lesson-edit-dialog>

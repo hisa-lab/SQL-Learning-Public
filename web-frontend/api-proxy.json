@@ -1,0 +1,18 @@
+{
+    "/api": {
+        "target": "http://web-backend:3000",
+        "secure": false
+    },
+    "/auth": {
+        "target": "http://web-backend:3000",
+        "secure": false
+    },
+    "/static": {
+        "target": "http://web-backend:3000",
+        "secure": false
+    },
+    "/ws/*": {
+        "target": "ws://web-backend:3000",
+        "ws": true
+    }
+}

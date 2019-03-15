@@ -1,0 +1,13 @@
+<div class="page-header">
+  <button class="btn btn-outline-primary" (click)="location.back()">課題画面にもどる</button>
+</div>
+<div class="page-description">
+  <div class="card" *ngFor="let log of chatLog">
+    <div class="card-body chat-text">
+      {{log.text}}
+    </div>
+    <div class="card-footer chat-name text-right">
+      {{log.time| date: 'yyyy年M月d日 HH時mm分ss秒'}}
+    </div>
+  </div>
+</div>
